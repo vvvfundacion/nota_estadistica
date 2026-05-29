@@ -226,7 +226,21 @@
     padding: 22px 20px;
     border-radius: 2px;
     box-shadow: 0 2px 12px rgba(26,39,68,0.07);
+    /* Animación dinámica: más lenta y dramática */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  /* Estados visibles con efecto cascada */
+  .stat-row.visible .stat-box {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .stat-row.visible .stat-box:nth-child(1) { transition-delay: 0s; }
+  .stat-row.visible .stat-box:nth-child(2) { transition-delay: 0.25s; }
+  .stat-row.visible .stat-box:nth-child(3) { transition-delay: 0.5s; }
+  .stat-row.visible .stat-box:nth-child(4) { transition-delay: 0.75s; }
+
   .stat-box.accent { border-top-color: var(--rose); }
   .stat-box.teal { border-top-color: var(--teal); }
   .stat-number {
@@ -343,7 +357,8 @@
   .bar-fill {
     height: 100%;
     border-radius: 5px;
-    transition: width 0.4s;
+    /* Transición dinámica y suave para el movimiento natural */
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .bar-women { background: var(--rose); }
   .bar-men   { background: var(--teal); }
@@ -479,7 +494,8 @@
     font-size: 12px;
     font-weight: 600;
     color: white;
-    transition: width 0.4s;
+    /* Transición dinámica y suave para el movimiento natural */
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     z-index: 1;
   }
@@ -552,7 +568,23 @@
     background: var(--warm-white);
     border-radius: 4px;
     box-shadow: 0 1px 6px rgba(26,39,68,0.06);
+    /* Animación dinámica: de abajo hacia arriba, más dramática */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  /* Estados visibles con efecto cascada */
+  .checklist.visible li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .checklist.visible li:nth-child(1) { transition-delay: 0s; }
+  .checklist.visible li:nth-child(2) { transition-delay: 0.2s; }
+  .checklist.visible li:nth-child(3) { transition-delay: 0.4s; }
+  .checklist.visible li:nth-child(4) { transition-delay: 0.6s; }
+  .checklist.visible li:nth-child(5) { transition-delay: 0.8s; }
+  .checklist.visible li:nth-child(6) { transition-delay: 1.0s; }
+
   .check-icon {
     width: 28px;
     height: 28px;
@@ -690,6 +722,14 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 10px;
+    /* Animación de entrada vertical (de abajo hacia arriba) */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .qt-row.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .qt-row:last-child {
     margin-bottom: 0;
@@ -720,7 +760,8 @@
     font-size: 11px;
     font-weight: 500;
     color: white;
-    transition: width 0.4s;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .qt-bar-m { background: var(--teal); }
   .qt-bar-w { background: var(--rose); }
@@ -819,7 +860,7 @@
 <!-- ║            ABSTRACT                ║ -->
 <!-- ╚══════════════════════════════════╝ -->
 <div class="abstract">
-  <p>A primera vista, los resultados de la última Encuesta de Micronegocios y la Gran Encuesta Integrada de Hogares muestran que buena parte de los micronegocios con liderazgo femenino operan en condiciones más precarias que aquellos liderados por los hombres donde los menores ingresos, el menor acceso a crédito, la informalidad y una enorme desigualdad en las cargas de cuidado no remunerado son la norma para las mujeres. Es así como, la pregunta que atraviesa todo el análisis es la siguiente: ¿el auge del emprendimiento femenino refleja autonomía económica o revela que, para muchas mujeres, el negocio propio sigue siendo la última alternativa para sobrevivir?</p>
+  <p>¿El auge del emprendimiento femenino refleja autonomía económica o revela que, para muchas mujeres, el negocio propio sigue siendo la última alternativa para sobrevivir? A primera vista, los resultados de la última Encuesta de Micronegocios y la Gran Encuesta Integrada de Hogares muestran que buena parte de los micronegocios con liderazgo femenino operan en condiciones más precarias que aquellos liderados por los hombres. Los menores ingresos, el menor acceso a crédito, la informalidad y una enorme desigualdad en las cargas de cuidado no remunerado son la norma para las mujeres.</p>
 </div>
  
 <div class="page">
@@ -1360,6 +1401,75 @@
     
     // Actualizamos el elemento en la portada
     document.getElementById('reading-time').innerText = readingTime + ' min de lectura';
+
+    // ─────────────────────────────────────────────────────────────
+    // LÓGICA PARA GRÁFICOS DINÁMICOS AL HACER SCROLL
+    // ─────────────────────────────────────────────────────────────
+    // 1. Observer para barras normales (.bar-fill) de llenado horizontal
+    const normalBars = document.querySelectorAll('.bar-fill');
+    
+    normalBars.forEach(bar => {
+      bar.dataset.targetWidth = bar.style.width;
+      bar.style.width = '0%';
+    });
+
+    const barObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          requestAnimationFrame(() => {
+            bar.style.width = bar.dataset.targetWidth;
+          });
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    normalBars.forEach(bar => {
+      barObserver.observe(bar);
+    });
+
+    // 2. Observer en cascada para el gráfico de deciles (.quintile-chart)
+    const quintileChart = document.querySelector('.quintile-chart');
+    if (quintileChart) {
+      const quintileObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Seleccionamos las filas y las invertimos para empezar desde Decil 1 (el último en el HTML)
+            const rows = Array.from(quintileChart.querySelectorAll('.qt-row')).reverse();
+            
+            rows.forEach((row, index) => {
+              // Retraso de 250ms entre cada fila, creando el efecto escalera de abajo hacia arriba
+              setTimeout(() => {
+                row.classList.add('visible');
+              }, index * 250); 
+            });
+            
+            observer.unobserve(quintileChart);
+          }
+        });
+      }, { threshold: 0.2 }); // Se activa cuando el 20% del gráfico es visible
+      quintileObserver.observe(quintileChart);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // LÓGICA PARA APARICIÓN EN CASCADA (STAT-BOX Y CHECKLIST)
+    // ─────────────────────────────────────────────────────────────
+    const fadeContainers = document.querySelectorAll('.stat-row, .checklist');
+    
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Añade la clase 'visible' al contenedor padre para detonar la animación en cascada
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Dejar de observar tras la primera animación
+        }
+      });
+    }, { threshold: 0.15 }); // Se activa cuando el 15% del contenedor se asoma en pantalla
+
+    fadeContainers.forEach(container => {
+      fadeObserver.observe(container);
+    });
   });
 
   // Actualizar barra de progreso al hacer scroll
