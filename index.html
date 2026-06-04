@@ -156,18 +156,30 @@
  
   /* ── ABSTRACT ── */
   .abstract {
-    background: var(--rose-light);
-    border-left: 5px solid var(--rose);
-    padding: 40px 60px;
+    background: var(--warm-white);
+    border-left: 5px solid var(--navy);
+    padding: 44px 60px;
     max-width: 900px;
     margin: 60px auto;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(26,39,68,0.06);
   }
   .abstract p {
-    font-size: 16px;
+    font-size: 18px;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .abstract p:last-child {
+    margin-bottom: 0;
+  }
+  .abstract .highlight-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
     font-style: italic;
     color: var(--navy);
-    line-height: 1.8;
+    font-weight: 700;
+    margin: 28px 0;
   }
  
   /* ── MAIN CONTENT ── */
@@ -811,6 +823,16 @@
     font-size: 26px;
     margin-bottom: 24px;
   }
+  .conclusion-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+  }
   .conclusion p { color: rgba(255,255,255,0.85); margin-bottom: 20px; font-size: 16px; }
   .conclusion p strong { color: var(--accent-yellow); }
  
@@ -846,7 +868,7 @@
 <!-- ╚══════════════════════════════════╝ -->
 <div class="cover">
   <div class="cover-tag">Reacción a resultados preliminares del Censo Económico Nacional Urbano · Mayo 2026</div>
-  <h1 class="cover-title">Las jefas del rebusque:<br>mujeres lideran los negocios urbanos de Colombia, pero posiblemente los <em>más frágiles</em></h1>
+  <h1 class="cover-title">Las jefas del rebusque:<br>mujeres lideran los negocios urbanos de Colombia, pero desde la <em>fragilidad</em></h1>
    <div class="cover-meta">
     <span>Equipo de Analítica - Fundación WWB Colombia </span>
     <div class="dot"></div>
@@ -860,7 +882,13 @@
 <!-- ║            ABSTRACT                ║ -->
 <!-- ╚══════════════════════════════════╝ -->
 <div class="abstract">
-  <p>¿El auge del emprendimiento femenino refleja autonomía económica o revela que, para muchas mujeres, el negocio propio sigue siendo la última alternativa para sobrevivir? A primera vista, los resultados de la última Encuesta de Micronegocios y la Gran Encuesta Integrada de Hogares muestran que buena parte de los micronegocios con liderazgo femenino operan en condiciones más precarias que aquellos liderados por los hombres. Los menores ingresos, el menor acceso a crédito, la informalidad y una enorme desigualdad en las cargas de cuidado no remunerado son la norma para las mujeres.</p>
+  <p>El tejido empresarial colombiano en las zonas urbanas se sostiene, en gran medida, sobre los hombros de las mujeres. Sin embargo, detrás del rótulo de 'emprendedoras' se oculta una realidad económica mucho más compleja y precaria, el rebusque como mecanismo de supervivencia.</p>
+  
+  <p class="highlight-question">¿El auge del emprendimiento femenino refleja autonomía económica o revela que, para muchas mujeres, el negocio propio sigue siendo la última alternativa para sobrevivir?</p>
+  
+  <p>A primera vista, los resultados de la última Encuesta de Micronegocios y la Gran Encuesta Integrada de Hogares muestran que buena parte de los micronegocios con liderazgo femenino operan en condiciones más precarias que aquellos liderados por los hombres. Los menores ingresos, el menor acceso a crédito, la informalidad y una enorme desigualdad en las cargas de cuidado no remunerado son la norma para las mujeres.</p>
+  
+  <p>Sin embargo, plantear esta pregunta no implica asumir que los micronegocios están condenados a permanecer en la subsistencia. La evidencia internacional muestra que muchos emprendimientos nacen como respuesta a restricciones económicas, pero pueden convertirse en vehículos de movilidad social cuando existen condiciones adecuadas de financiamiento, productividad, formalización y acceso a mercados. La cuestión central no es únicamente por qué emprenden las mujeres, sino qué tan posible es que, dada las condiciones, esos negocios evolucionen hacia formas más sólidas de autonomía económica.</p>
 </div>
  
 <div class="page">
@@ -869,8 +897,8 @@
 <!--  SECCIÓN 1: INTRO + PARADOJA       -->
 <!-- ══════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">El liderazgo de los micronegocios en Colombia</div>
-  <h2>La fotografía desigual del mapa económico</h2>
+  <div class="section-label">La fotografía desigual del mapa económico</div>
+  <h2></h2>
   
    <p> Los datos de la Encuesta de Micronegocios (EMICRON) muestran una fotografía desigual de las unidades económicas en Colombia. La EMICRON muestra las brechas tradicionales del mercado laboral en términos de participación laboral, en total, la encuesta contabilizó cerca de 5,3 millones de micronegocios en 2024, donde el 65% de las personas propietarias de micronegocios son hombres (3,4 millones) y solo el 35% son mujeres (1,9 millones).</p>
 
@@ -930,14 +958,16 @@
     </div>
   </div>
  
-  <p>Aunque también existe un componente importante de emprendimiento por oportunidad, el peso del emprendimiento asociado a subsistencia sigue siendo enorme. La encuesta deja ver que, para una parte importante de las mujeres, el negocio propio aparece como respuesta a la exclusión laboral, la inestabilidad económica o la imposibilidad de acceder a empleos formales compatibles con las responsabilidades domésticas.</p>
-<p><span class="sentence-highlight">En muchos casos, se trata de rebusque.</span></p>
+  <p>Aunque también existe un componente importante de emprendimiento por oportunidad, el peso del emprendimiento asociado a subsistencia sigue siendo enorme. La encuesta deja ver que, para una parte importante de las mujeres, el negocio propio aparece como respuesta a la exclusión laboral, la inestabilidad económica o la imposibilidad de acceder a empleos formales compatibles con las responsabilidades domésticas.</p> 
+<p><span class="sentence-highlight"> Para muchas mujeres, encontrar un empleo de calidad sigue siendo más difícil que inventarse uno.</span></p>
+<p><span class="sentence-highlight">Se trata de rebusque.</span></p>
+</p>Pero eso no significa que estos negocios carezcan de potencial. La pregunta es cuántos logran superar esa etapa inicial de supervivencia y convertirse en una fuente estable de ingresos para sus propietarias.</p>
 </div>
  
 <hr class="divider">
  
 <!-- ══════════════════════════════════ -->
-<!--  SECCIÓN 2: SECTORES              -->
+<!--  SECCIÓN 2: SECTORES               -->
 <!-- ══════════════════════════════════ -->
 <div class="section">
   <div class="section-label">La distribución sectorial</div>
@@ -1132,7 +1162,7 @@
   </div>
 
     <div class="pullquote">
-    <p>Mientras los hombres alcanzan medianas cercanas a 4 millones de pesos en activos, las mujeres se ubican alrededor de los 2 millones. La diferencia también aparece en los tramos altos: el 10% de los negocios masculinos supera activos por 50 millones de pesos, mientras que en los negocios femeninos el percentil 90 apenas alcanza los 15 millones.</p>
+    <p>Mientras los hombres alcanzan medianas cercanas a 4 millones de pesos en activos, las mujeres se ubican alrededor de los 2 millones. La diferencia también aparece en los tramos altos: el 10% de los negocios masculinos supera activos por 50 millones de pesos, mientras que en los negocios femeninos de este mismo rango apenas superan los 15 millones.</p>
   </div>
  
 </div>
@@ -1155,7 +1185,7 @@
  
   <p>Durante el último año, solo 236 mil mujeres propietarias solicitaron algún crédito para su negocio. Es decir, el 86,1% de las mujeres propietarias no acudió al sistema de financiamiento.</p>
  
-  <p>La razón principal no es la exclusión directa del sistema, el 45,1% de las mujeres que no solicitaron crédito afirmó que no le gusta adquirir deudas. Otro 31,6% dijo que no lo necesitaba. Solo el 13,5% reconoció no cumplir los requisitos. Pero el miedo al endeudamiento en contextos de ingresos muy bajos no es irracional sino una respuesta adaptativa ante la incapacidad real de servir una deuda con un negocio que genera la mitad del salario mínimo.</p>
+  <p>La razón principal no es la exclusión directa del sistema, el 45,1% de las mujeres que no solicitaron crédito afirmó que no le gusta adquirir deudas. Otro 31,6% dijo que no lo necesitaba. Solo el 13,5% reconoció no cumplir los requisitos. Para una mujer cuyo negocio deja menos de medio salario mínimo al mes, endeudarse no siempre parece una oportunidad, muchas veces parece un riesgo demasiado grande.</p>
  
   <div class="compare-block">
     <div class="compare-title">¿Por qué no solicitaron crédito? — Mujeres propietarias</div>
@@ -1323,7 +1353,7 @@
 <hr class="divider">
 
 <!-- ══════════════════════════════════ -->
-<!--  SECCIÓN 6: Antefinal      -->
+<!--  SECCIÓN 6: Antefinal       -->
 <!-- ══════════════════════════════════ -->
 <div class="section">
   <div class="section-label">El nuevo mapa del emprendimiento urbano</div>
@@ -1338,12 +1368,13 @@
  
   <p>Este dato, por sí solo, puede ser engañoso.</p>
  
-  <p>Porque como mostramos anteriormente, detrás de ese aparente liderazgo empresarial puede emerger otra realidad. Muchas de esas mujeres podrían estar concentradas en los negocios de menor escala, menor capitalización y menor capacidad de acumulación, en otras palabras los más débiles. Los negocios con liderazgo femenino en Colombia no necesariamente indican autonomía económica consolidada; en muchos casos, parece funcionar más como una estrategia de supervivencia frente a un mercado laboral que sigue expulsando mujeres hacia la informalidad, es así como los negocios son esa opción que les permite generar ingresos en un entorno de exclusión productiva. En la medida en que los resultados del DANE sean revelados en totalidad será fundamental revisar los datos con enfoque de género y de forma inclusiva, mientras tanto, el análisis de la Encuesta de Micronegocios nos advierte que este empoderamiento puede ser parcial, pues las mujeres se concentran en micronegocios débiles, incluso cuando en esta encuesta se segmentan los negocios más grandes</p>
+  <p>Porque como mostramos anteriormente, detrás de ese aparente liderazgo empresarial puede emerger otra realidad. Muchas de esas mujeres podrían estar concentradas en los negocios de menor escala, menor capitalización y capacidad de acumulación, en otras palabras, los más débiles. Los negocios con liderazgo femenino en Colombia no necesariamente indican autonomía económica consolidada; en margin muchos casos, parece funcionar más como una estrategia de supervivencia frente a un mercado laboral que sigue expulsando mujeres hacia la informalidad, es así como los negocios son esa opción que les permite generar ingresos en un entorno de exclusión productiva. En la medida en que los resultados del DANE sean revelados en totalidad será fundamental revisar los datos con enfoque de género y de forma inclusiva, mientras tanto, el análisis de la Encuesta de Micronegocios nos advierte que este empoderamiento puede ser parcial, pues las mujeres se concentran en micronegocios débiles, incluso cuando en esta encuesta se segmentan los negocios más grandes</p>
  
 <!-- ══════════════════════════════════ -->
 <!--  CONCLUSIÓN PROFUNDIZADA          -->
 <!-- ══════════════════════════════════ -->
 <div class="conclusion">
+  <span class="conclusion-label">Hacia un nuevo enfoque de política pública</span>
   <h2>El liderazgo empresarial femenino no es, por sí mismo, autonomía económica</h2>
  
   <p>La autonomía económica real requiere más que la propiedad formal de un negocio. Requiere que ese negocio genere ingresos suficientes para sostenerse —no ocurre cuando la mediana de ese ingreso es un tercio del salario mínimo. Requiere acceso a capital para crecer —no ocurre cuando el 86% no solicita crédito y una de cada cinco que sí lo pide recurre al gota a gota. Requiere tiempo libre para desarrollar el negocio —no ocurre cuando la carga de cuidado no remunerado consume 7 horas diarias adicionales. Requiere un espacio físico separado del hogar —no ocurre cuando el 54% de los negocios funciona desde la sala de la casa. Y requiere que el negocio sea el eje del ingreso, no un complemento —no ocurre cuando representa apenas el 21,8% del ingreso del hogar para una jefa de familia.</p>
@@ -1377,11 +1408,15 @@
  
   <p>El hallazgo del Censo Económico Nacional Urbano es genuinamente importante. Revela una transformación silenciosa en la estructura económica de las ciudades colombianas, las mujeres sostienen una parte creciente de la economía urbana. Pero la lectura de ese dato exige profundidad .</p>
  
-  <p>Cuando se observan los ingresos, la informalidad, la ubicación de los negocios, la distribución sectorial, la motivación del emprendimiento, el peso del negocio dentro del ingreso del hogar, y las tasas de pobreza entre las jefas de hogar que emprenden, <strong>lo que emerge no es una historia de empoderamiento, sino una economía urbana profundamente sostenida por mujeres que emprenden desde condiciones estructuralmente desiguales.</strong></p>
+  <p>Cuando se observan los ingresos, la informalidad, la ubicación de los negocios, la distribución sectorial, la motivación del emprendimiento, el peso del negocio dentro del ingreso del hogar, y las tasas de pobreza entre las jefas de hogar que emprenden, <strong>, lo que emerge es una historia de empoderamiento incompleto, una economía urbana profundamente sostenida por mujeres que emprenden desde condiciones estructuralmente desiguales.</strong></p>
  
-  <p>El negocio propio funciona en muchos casos como mecanismo de supervivencia frente a la precariedad laboral, la desigual distribución del cuidado y las barreras de acceso al empleo formal. Emprender no libera a estas mujeres, quizás y solo las mantiene a flote. Y mantener a flote un hogar —muchas veces como único proveedor, con hijos pequeños y adultos mayores a cargo, desde la sala de la casa, sin crédito, sin registros, con ingresos de un tercio del salario mínimo— no es emprendimiento de oportunidad. Es resiliencia ante la exclusión y es una situación de alto riesgo frente a choques externos.</p>
+  <p>El negocio propio funciona en muchos casos como mecanismo de supervivencia frente a la precariedad laboral, la desigual distribución del cuidado y las barreras de acceso al empleo formal. Para muchas mujeres, emprender todavía no significa salir de la vulnerabilidad; significa, sobre todo, mantenerse a flote. Y mantener a flote un hogar —muchas veces como único proveedor, con hijos pequeños y adultos mayores a cargo, desde la sala de la casa, sin crédito, sin registros, con ingresos de un tercio del salario mínimo— no es emprendimiento de oportunidad. Es resiliencia ante la exclusión y es una situación de alto riesgo frente a choques externos.</p>
  <p> Y aunque la Encuesta de Micronegocios suele capturar unidades económicas más pequeñas y potencialmente más precarias que las identificadas por el Censo Económico Nacional Urbano, los patrones de desigualdad persisten incluso cuando se restringe esta  encuesta a un análisis de negocios visibles con local en zonas urbanas, por ejemplo. Al hacer una lectura con enfoque de género, las brechas vuelven a aparecer y encontramos menores ingresos, menor acceso a activos, más carga de cuidado y mayores condiciones de vulnerabilidad entre las mujeres propietarias.</p>
   <p>Por eso, cuando se conozcan los resultados completos del Censo Económico, la pregunta no debería ser cuántas mujeres están emprendiendo, sino <strong>bajo qué condiciones lo están haciendo y si esas condiciones pueden transformarse en algo más que sobrevivencia.</strong></p>
+
+  <p>Las mujeres ya están sosteniendo una parte creciente de la economía urbana colombiana. El desafío no es demostrar que pueden emprender, los datos muestran que lo hacen todos los días. El verdadero reto es construir las condiciones para que ese esfuerzo deje de ser una estrategia de supervivencia y se convierta en una ruta real hacia la autonomía económica. Implica reconocer que millones de ellas emprenden desde la precariedad, sosteniendo simultáneamente sus negocios, sus hogares y las responsabilidades de cuidado.</p>
+
+  <p>La verdadera apuesta por la autonomía económica exige políticas que faciliten el acceso a financiamiento adecuado, impulsen la formalización, fortalezcan los sistemas de cuidado y generen condiciones para que sus negocios crezcan y acumulen valor. Solo así, las jefas del rebusque podrán convertirse en verdaderas arquitectas de su independencia económica, no porque hayan aprendido a sobrevivir mejor, sino porque finalmente contarán con las oportunidades necesarias para prosperar.</p>
 </div>
   
 </div><!-- /page -->
